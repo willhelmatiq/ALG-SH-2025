@@ -15,10 +15,21 @@ public class MinimalInterdependentSimplicity {
         for (int i = 0; i < n; i++) {
             list.add(Arrays.stream(bufferedReader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray());
         }
-        System.out.println("rqweq");
+        processList(list);
     }
 
     static void processList(List<int[]> list) {
-        
+        StringBuilder result = new StringBuilder();
+        for (int[] params : list) {
+            result.append(calc(params)).append("\n");
+        }
+        System.out.println(result);
+    }
+
+    static String calc(int[] params) {
+        if (params[0] == params[1] && params[0] == 1) {
+            return "1";
+        }
+        return String.valueOf(params[1] - params[0]);
     }
 }
